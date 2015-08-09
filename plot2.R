@@ -9,7 +9,14 @@ data=read.csv('household_power_consumption.txt',header=TRUE,sep=";",dec='.',na.s
 data[,1]=as.Date(data[,1],'%d/%m/%Y')
 #
 # extracting requiered data
-data2=data[year(data[,1])==2007 & months(data[,1])=='February' & ( day(data[,1])=='1' | day(data[,1])=='2'),]
 
-#Plot 2, an histogram'
-plot(data2[,3], ylab='Global Active Power (kilowatts)', xlab='Thuesdat', type='l' )
+data2=data[year(data[,1])==2007 & months(data[,1])=='February' & ( day(data[,1])=='1' | day(data[,1])=='2'),]
+ndat=dim(data2)[1]
+#Plot 2, an Plot
+
+par('cex.lab'=0.9)
+par('cex'=0.8)
+
+plot(data2[,3], ylab='Global Active Power (kilowatts)', xlab='', type='l',xaxt='n' )
+axis(side=1,at=c(1,(ndat/2),(ndat-1)),labels=c('Thu','Fri','Sat'))
+

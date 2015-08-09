@@ -1,5 +1,6 @@
 # Plot1.R
 # jmendez
+# OK
 
 # project 1 Plot 1  exploratory data
 setwd("/home/jmendez")
@@ -12,6 +13,9 @@ data[,1]=as.Date(data[,1],'%d/%m/%Y')
 data2=data[year(data[,1])==2007 & months(data[,1])=='February' & ( day(data[,1])=='1' | day(data[,1])=='2'),]
 
 #Plot 1, an histogram
+
+par('cex.lab'=0.9)
+par('cex'=0.8)
 
 hist(data2[,3],xlab='Global Active Power (kilowatts)',main='Global Active Power', col="red")
 
