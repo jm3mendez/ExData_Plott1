@@ -17,34 +17,33 @@ par('cex'=0.8)
 
 ### PLot
 
-library(grDevices)
-png(filename = "plot4.png",
-    width = 480, height = 480, units = "px", pointsize = 12)
 
+myplot <- function(data2) {
+  par(cex.lab=1,cex=1)
+  par(mfcol=c(2,2),mar=c(4,4,2,1),oma=c(0,0,2,0),cex=0.6)
 
-par(cex.lab=1,cex=1)
-par(mfcol=c(2,2),mar=c(4,4,2,1),oma=c(0,0,2,0),cex=0.6)
-
-#  hist(data2[,3],xlab='Global Active Power (kilowatts)',main='Global Active Power', col="red")
-  
-#  par(cex.lab=0.7,cex=0.8)
   plot(data2[,3], ylab='Global Active Power', xlab='', type='l',xaxt='n' )
   axis(side=1,at=c(1,(ndat/2),(ndat-1)),labels=c('Thu','Fri','Sat'))
   
-#  par(cex.lab=0.7,cex=0.8)
   plot(data2[,7], ylab='Energy sub metering', xlab='', type='l',xaxt='n' )
   lines(data2[,8],col='red')
   lines(data2[,9],col='blue')
   legend('topright',c('Sub Mettering 1','Sub Metering 2','Sub Metering 3'),lty=c(1,1),lwd=c(2.5,2.5,2.5),col=c('black','red','blue'),cex=0.5,bty='n')
   axis(side=1,at=c(1,(ndat/2),(ndat-1)),labels=c('Thu','Wed','Fri'),lwd=0.7)
 
-#  par(cex.lab=0.7,cex=0.8)
   plot(data2[,5], ylab='Voltage', xlab='datetime', type='l',xaxt='n' )
   axis(side=1,at=c(1,(ndat/2),(ndat-1)),labels=c('Thu','Fri','Sat'))
 
-#  par(cex.lab=0.7,cex=0.8)
   plot(data2[,4], ylab='Global Reactive Power', xlab='datetime', type='l',xaxt='n' )
   axis(side=1,at=c(1,(ndat/2),(ndat-1)),labels=c('Thu','Fri','Sat'))
+}
 
+myplot(data2)
+
+#
+library(grDevices)
+png(filename = "plot4.png",
+    width = 480, height = 480, units = "px", pointsize = 12)
+myplot(data2)
 dev.off()
 
