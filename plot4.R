@@ -17,6 +17,11 @@ par('cex'=0.8)
 
 ### PLot
 
+library(grDevices)
+png(filename = "plot4.png",
+    width = 480, height = 480, units = "px", pointsize = 12)
+
+
 par(cex.lab=1,cex=1)
 par(mfcol=c(2,2),mar=c(4,4,2,1),oma=c(0,0,2,0),cex=0.6)
 
@@ -41,4 +46,5 @@ par(mfcol=c(2,2),mar=c(4,4,2,1),oma=c(0,0,2,0),cex=0.6)
   plot(data2[,4], ylab='Global Reactive Power', xlab='datetime', type='l',xaxt='n' )
   axis(side=1,at=c(1,(ndat/2),(ndat-1)),labels=c('Thu','Fri','Sat'))
 
+dev.off()
 

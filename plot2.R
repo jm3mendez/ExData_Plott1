@@ -14,9 +14,14 @@ data2=data[year(data[,1])==2007 & months(data[,1])=='February' & ( day(data[,1])
 ndat=dim(data2)[1]
 #Plot 2, an Plot
 
+library(grDevices)
+png(filename = "plot2.png",
+    width = 480, height = 480, units = "px", pointsize = 12)
+
 par('cex.lab'=0.9)
 par('cex'=0.8)
 
 plot(data2[,3], ylab='Global Active Power (kilowatts)', xlab='', type='l',xaxt='n' )
 axis(side=1,at=c(1,(ndat/2),(ndat-1)),labels=c('Thu','Fri','Sat'))
 
+dev.off()

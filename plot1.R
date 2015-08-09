@@ -14,9 +14,15 @@ data2=data[year(data[,1])==2007 & months(data[,1])=='February' & ( day(data[,1])
 
 #Plot 1, an histogram
 
+library(grDevices)
+png(filename = "plot1.png",
+    width = 480, height = 480, units = "px", pointsize = 12)
+
 par('cex.lab'=0.9)
 par('cex'=0.8)
 
 hist(data2[,3],xlab='Global Active Power (kilowatts)',main='Global Active Power', col="red")
+
+dev.off()
 
 
