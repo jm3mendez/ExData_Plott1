@@ -30,7 +30,7 @@ par(mfcol=c(2,2),mar=c(4,4,2,1),oma=c(0,0,2,0),cex=0.6)
   plot(data2[,7], ylab='Energy sub metering', xlab='', type='l',xaxt='n' )
   lines(data2[,8],col='red')
   lines(data2[,9],col='blue')
-  legend('topright',c('Sub Mettering 1','Sub Metering 2','Sub Metering 3'),lty=c(1,1),lwd=c(2.5,2.5,2.5),col=c('black','red','blue'),cex=0.5)
+  legend('topright',c('Sub Mettering 1','Sub Metering 2','Sub Metering 3'),lty=c(1,1),lwd=c(2.5,2.5,2.5),col=c('black','red','blue'),cex=0.5,bty='n')
   axis(side=1,at=c(1,(ndat/2),(ndat-1)),labels=c('Thu','Wed','Fri'),lwd=0.7)
 
 #  par(cex.lab=0.7,cex=0.8)
